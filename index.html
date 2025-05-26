@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website Of Joshi Nihal</title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Simple fadeIn animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .animate-fadeIn {
+            animation: fadeIn 1s ease forwards;
+        }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-800 { animation-delay: 0.8s; }
+
+        @keyframes fadeScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .animate-fadeScale {
+            animation: fadeScale 0.6s ease forwards;
+        }
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+        .delay-600 {
+            animation-delay: 0.6s;
+        }
+        @keyframes fadeSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fadeSlideUp {
+            animation: fadeSlideUp 1s ease forwards;
+        }
+        .animate-fadeSlideUp-delay-1 {
+            animation-delay: 0.3s;
+        }
+        .animate-fadeSlideUp-delay-2 {
+            animation-delay: 0.6s;
+        }
+        .animate-fadeSlideUp-delay-3 {
+            animation-delay: 0.9s;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white">
+
+    <!-- Navbar -->
+    <nav class="bg-white/10 backdrop-blur-md fixed w-full z-50 top-0 shadow-md" x-data="{ open: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+            
+            <!-- Logo -->
+            <div class="flex-shrink-0 text-white text-2xl font-bold tracking-wide">
+                Nihal Joshi
+            </div>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-white font-medium hover:text-blue-300 transition duration-300">Home</a>
+                <a href="#about" class="text-white font-medium hover:text-blue-300 transition duration-300">About</a>
+                <a href="#skills" class="text-white font-medium hover:text-blue-300 transition duration-300">Skills</a>
+                <a href="#projects" class="text-white font-medium hover:text-blue-300 transition duration-300">Projects</a>
+                <a href="#contact" class="text-white font-medium hover:text-blue-300 transition duration-300">Contact</a>
+                <a href="talk.html" class="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full font-semibold shadow hover:scale-105 transition-all duration-300">Let's Talk</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button @click="open = !open" class="text-white focus:outline-none">
+                <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                </button>
+            </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Links -->
+        <div class="md:hidden px-4 pb-4 pt-2" x-show="open" x-transition>
+            <a href="#home" class="block text-white py-2 hover:text-blue-300">Home</a>
+            <a href="#about" class="block text-white py-2 hover:text-blue-300">About</a>
+            <a href="#skills" class="block text-white py-2 hover:text-blue-300">Skills</a>
+            <a href="#projects" class="block text-white py-2 hover:text-blue-300">Projects</a>
+            <a href="#contact" class="block text-white py-2 hover:text-blue-300">Contact</a>
+            <a href="mailto:work.nihal3714@gmail.com" class="block bg-gradient-to-r from-blue-500 to-purple-500 text-white text-center px-4 py-2 mt-2 rounded-full font-semibold shadow hover:scale-105 transition-all duration-300">Let's Talk</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+
+    <section id="home" class="min-h-screen flex items-center justify-center px-6 md:px-20 bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-white pt-24">
+    <div class="max-w-6xl flex flex-col md:flex-row items-center justify-between w-full space-y-10 md:space-y-0">
+
+        <!-- Text Content -->
+        <div class="flex-1">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fadeSlideUp">Hi, I'm <span class="text-blue-400">Nihal Joshi</span></h1>
+        <p class="text-lg md:text-xl text-gray-300 max-w-xl mb-6 animate-fadeSlideUp animate-fadeSlideUp-delay-1">
+            I’m a passionate Full-Stack Developer crafting smart, modern web apps. Currently building <strong>GenBeta AI</strong> — an AI-powered learning platform for students.
+        </p>
+
+        <div class="flex space-x-4 animate-fadeSlideUp animate-fadeSlideUp-delay-2">
+            <a href="#contact" class="bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all duration-300">Let’s Talk</a>
+            <a href="resume.pdf" download class="border border-gray-300 px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-800 transition">Download Resume</a>
+        </div>
+        </div>
+
+        <!-- Profile Image -->
+        <div class="flex-1 flex justify-center animate-fadeSlideUp animate-fadeSlideUp-delay-3">
+        <img src="nihal.jpeg" alt="Nihal Joshi" class="rounded-full w-72 h-72 object-cover shadow-2xl border-4 border-white/20">
+        </div>
+
+    </div>
+    </section>
+
+
+
+    <!-- about section -->
+
+    <section id="about" class="bg-[#1e293b] text-white py-20 px-8 md:px-16 lg:px-24">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        
+        <!-- Text Content -->
+        <div class="md:w-1/2 space-y-6">
+        <h2 class="text-4xl font-extrabold mb-6 border-b-4 border-indigo-500 inline-block pb-2 animate-fadeIn">
+            About Me
+        </h2>
+        <p class="text-lg leading-relaxed text-gray-300 animate-fadeIn delay-200">
+            I'm Nihal Joshi, a passionate Full-Stack Web Developer crafting dynamic and responsive websites using HTML5, CSS3, JavaScript (ES6+), PHP, and MySQL. I specialize in clean, scalable solutions that provide excellent user experiences.
+        </p>
+        <p class="text-lg leading-relaxed text-gray-300 animate-fadeIn delay-400">
+            Currently focused on <span class="text-indigo-400 font-semibold">GenBeta AI</span> — an AI-powered personalized learning platform. I love tackling challenges that grow my skills and deliver impact.
+        </p>
+        <blockquote class="border-l-4 border-indigo-500 pl-6 italic text-indigo-300 mt-6 animate-fadeIn delay-600">
+            “Continuous learning and building innovative web solutions are my passions.”
+        </blockquote>
+        </div>
+        
+        <!-- Image or Illustration (Optional) -->
+        <div class="md:w-1/2 flex justify-center animate-fadeIn">
+        <img src="about.png" alt="Nihal Joshi" class="rounded-lg max-w-full h-auto" />
+        </div>
+    </div>
+    </section>
+
+
+
+<!-- skills section -->
+
+<section id="skills" class="bg-[#0f172a] text-white py-20 px-8 md:px-16 lg:px-24">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-extrabold mb-12 border-b-4 border-indigo-500 inline-block pb-2 animate-fadeIn">
+      Skills
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
+      <!-- Skill Item -->
+      <div class="skill-item flex flex-col items-center space-y-4">
+        <svg class="progress-circle" width="120" height="120" viewBox="0 0 120 120">
+          <circle class="bg" cx="60" cy="60" r="54" stroke="#334155" stroke-width="12" fill="none" />
+          <circle class="progress" cx="60" cy="60" r="54" stroke="#6366f1" stroke-width="12" fill="none" stroke-linecap="round"
+            stroke-dasharray="339.292" stroke-dashoffset="339.292" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="28" fill="#c7d2fe" class="percent-text">0%</text>
+        </svg>
+        <h3 class="text-indigo-400 font-semibold text-xl">HTML5 & CSS3</h3>
+      </div>
+
+      <div class="skill-item flex flex-col items-center space-y-4">
+        <svg class="progress-circle" width="120" height="120" viewBox="0 0 120 120">
+          <circle class="bg" cx="60" cy="60" r="54" stroke="#334155" stroke-width="12" fill="none" />
+          <circle class="progress" cx="60" cy="60" r="54" stroke="#6366f1" stroke-width="12" fill="none" stroke-linecap="round"
+            stroke-dasharray="339.292" stroke-dashoffset="339.292" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="28" fill="#c7d2fe" class="percent-text">0%</text>
+        </svg>
+        <h3 class="text-indigo-400 font-semibold text-xl">JavaScript (ES6+)</h3>
+      </div>
+
+      <div class="skill-item flex flex-col items-center space-y-4">
+        <svg class="progress-circle" width="120" height="120" viewBox="0 0 120 120">
+          <circle class="bg" cx="60" cy="60" r="54" stroke="#334155" stroke-width="12" fill="none" />
+          <circle class="progress" cx="60" cy="60" r="54" stroke="#6366f1" stroke-width="12" fill="none" stroke-linecap="round"
+            stroke-dasharray="339.292" stroke-dashoffset="339.292" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="28" fill="#c7d2fe" class="percent-text">0%</text>
+        </svg>
+        <h3 class="text-indigo-400 font-semibold text-xl">PHP & MySQL</h3>
+      </div>
+
+      <div class="skill-item flex flex-col items-center space-y-4">
+        <svg class="progress-circle" width="120" height="120" viewBox="0 0 120 120">
+          <circle class="bg" cx="60" cy="60" r="54" stroke="#334155" stroke-width="12" fill="none" />
+          <circle class="progress" cx="60" cy="60" r="54" stroke="#6366f1" stroke-width="12" fill="none" stroke-linecap="round"
+            stroke-dasharray="339.292" stroke-dashoffset="339.292" />
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="28" fill="#c7d2fe" class="percent-text">0%</text>
+        </svg>
+        <h3 class="text-indigo-400 font-semibold text-xl">Tailwind CSS</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- project section -->
+
+<section id="projects" class="bg-[#1e293b] text-white py-20 px-8 md:px-16 lg:px-24">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-extrabold mb-12 border-b-4 border-indigo-500 inline-block pb-2 tracking-wide">
+      Projects
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+      <!-- Project Card -->
+      <div class="project-card bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-xl shadow-xl p-8 transform scale-75 translate-y-10 transition-transform duration-700 ease-[cubic-bezier(.68,-0.55,.27,1.55)] hover:scale-105 hover:shadow-indigo-600 cursor-pointer">
+        <h3 class="text-3xl font-semibold mb-4 text-indigo-400 tracking-wide">GenBeta AI Platform</h3>
+        <p class="text-gray-300 mb-6 leading-relaxed">
+          AI-powered personalized learning platform with career roadmaps and curated resources for students.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-6">
+          <span class="bg-indigo-700 text-indigo-200 px-4 py-1 rounded-full text-sm font-medium">AI</span>
+          <span class="bg-indigo-700 text-indigo-200 px-4 py-1 rounded-full text-sm font-medium">JavaScript</span>
+          <span class="bg-indigo-700 text-indigo-200 px-4 py-1 rounded-full text-sm font-medium">Tailwind CSS</span>
+        </div>
+        <a href="#" class="inline-block text-indigo-400 font-semibold border border-indigo-400 rounded-full px-6 py-2 hover:bg-indigo-400 hover:text-[#1e293b] transition">
+          View Project →
+        </a>
+      </div>
+
+      <!-- Project Card -->
+      <div class="project-card bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-xl shadow-xl p-8 transform scale-75 translate-y-10 transition-transform duration-700 ease-[cubic-bezier(.68,-0.55,.27,1.55)] hover:scale-105 hover:shadow-indigo-600 cursor-pointer">
+        <h3 class="text-3xl font-semibold mb-4 text-indigo-400 tracking-wide">Portfolio Website</h3>
+        <p class="text-gray-300 mb-6 leading-relaxed">
+          Responsive portfolio showcasing skills, projects, and career journey with clean UI/UX.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-6">
+          <span class="bg-indigo-700 text-indigo-200 px-4 py-1 rounded-full text-sm font-medium">HTML</span>
+          <span class="bg-indigo-700 text-indigo-200 px-4 py-1 rounded-full text-sm font-medium">CSS</span>
+          <span class="bg-indigo-700 text-indigo-200 px-4 py-1 rounded-full text-sm font-medium">JavaScript</span>
+        </div>
+        <a href="#" class="inline-block text-indigo-400 font-semibold border border-indigo-400 rounded-full px-6 py-2 hover:bg-indigo-400 hover:text-[#1e293b] transition">
+          View Project →
+        </a>
+      </div>
+
+      <!-- Project Card -->
+      <div class="project-card bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-xl shadow-xl p-8 transform scale-75 translate-y-10 transition-transform duration-700 ease-[cubic-bezier(.68,-0.55,.27,1.55)] hover:scale-105 hover:shadow-indigo-600 cursor-pointer">
+        <h3 class="text-3xl font-semibold mb-4 text-indigo-400 tracking-wide">Task Manager Web App</h3>
+        <p class="text-gray-300 mb-6 leading-relaxed">
+          A clean and functional task manager with calendar view, filters, and localStorage support for smooth user experience.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-6">
+          <span class="bg-indigo-700 text-indigo-200 px-4 py-1 rounded-full text-sm font-medium">JavaScript</span>
+          <span class="bg-indigo-700 text-indigo-200 px-4 py-1 rounded-full text-sm font-medium">Tailwind CSS</span>
+          <span class="bg-indigo-700 text-indigo-200 px-4 py-1 rounded-full text-sm font-medium">LocalStorage</span>
+        </div>
+        <a href="#" class="inline-block text-indigo-400 font-semibold border border-indigo-400 rounded-full px-6 py-2 hover:bg-indigo-400 hover:text-[#1e293b] transition">
+          View Project →
+        </a>
+      </div>
+
+      <!-- Project Card -->
+      <div class="project-card bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-xl shadow-xl p-8 transform scale-75 translate-y-10 transition-transform duration-700 ease-[cubic-bezier(.68,-0.55,.27,1.55)] hover:scale-105 hover:shadow-indigo-600 cursor-pointer">
+        <h3 class="text-3xl font-semibold mb-4 text-indigo-400 tracking-wide">Interview Prep Platform</h3>
+        <p class="text-gray-300 mb-6 leading-relaxed">
+          Real-time interview practice system with AI feedback, interview tips, FAQs, and animated UI for engaging prep.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-6">
+          <span class="bg-indigo-700 text-indigo-200 px-4 py-1 rounded-full text-sm font-medium">PHP</span>
+          <span class="bg-indigo-700 text-indigo-200 px-4 py-1 rounded-full text-sm font-medium">MySQL</span>
+          <span class="bg-indigo-700 text-indigo-200 px-4 py-1 rounded-full text-sm font-medium">JavaScript</span>
+        </div>
+        <a href="#" class="inline-block text-indigo-400 font-semibold border border-indigo-400 rounded-full px-6 py-2 hover:bg-indigo-400 hover:text-[#1e293b] transition">
+          View Project →
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll('.project-card');
+    const projectsSection = document.getElementById('projects');
+    let animated = false; // To ensure animation triggers only once
+
+    function animateCards() {
+      const sectionTop = projectsSection.getBoundingClientRect().top;
+      const triggerPoint = window.innerHeight * 0.85;
+
+      if (sectionTop < triggerPoint && !animated) {
+        cards.forEach((card, index) => {
+          card.style.transitionDelay = `${index * 0.15}s`;
+          card.classList.remove('scale-75', 'translate-y-10');
+          card.classList.add('scale-100', 'translate-y-0');
+        });
+        animated = true;
+      }
+    }
+
+    window.addEventListener('scroll', animateCards);
+  </script>
+</section>
+
+
+
+<!-- contact section -->
+
+
+<section id="contact" class="bg-[#0f172a] text-white py-20 px-6 md:px-16">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-center mb-14 border-b-4 border-indigo-500 inline-block pb-2">
+      Contact Me
+    </h2>
+
+    <form id="contactForm" class="space-y-10" novalidate>
+      <div class="relative">
+        <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full bg-white/5 border border-white/20 text-white rounded-xl px-5 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      </div>
+
+      <div class="relative">
+        <input type="email" id="email" name="email" placeholder="Email Address" required class="w-full bg-white/5 border border-white/20 text-white rounded-xl px-5 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      </div>
+
+      <div class="relative">
+        <textarea id="message" name="message" rows="5" placeholder="Message" required class="peer w-full bg-white/5 border border-white/20 text-white rounded-xl px-5 pt-3 pb-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none"></textarea>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-10 py-4 rounded-full shadow-md transition-all duration-300" >
+          Send Message
+        </button>
+      </div>
+    </form>
+
+    <!-- Notification container fixed bottom right -->
+    <div id="toastContainer" class="fixed bottom-5 right-5 space-y-4 z-50"></div>
+  </div>
+</section>
+
+
+
+<!-- Resume Section -->
+<section id="resume" class="bg-[#0f172a] text-white py-20 px-6 md:px-16">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2
+      class="text-4xl font-extrabold mb-6 border-b-4 border-indigo-500 inline-block pb-2 opacity-0 translate-y-10 transition-all duration-700 ease-out"
+      data-animate="fadeScale"
+      data-delay="200"
+    >
+      Download My Resume
+    </h2>
+    <p
+      class="mb-8 text-gray-300 max-w-xl mx-auto opacity-0 translate-y-10 transition-all duration-700 ease-out"
+      data-animate="fadeScale"
+      data-delay="400"
+    >
+      Interested in working with me? Download my up-to-date resume to see my skills and experience.
+    </p>
+    <a
+      href="resume.pdf"
+      download
+      class="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-8 py-3 rounded-full shadow-md transition-all duration-300 opacity-0 translate-y-10 ease-out"
+      data-animate="fadeScale"
+      data-delay="600"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5 mr-2"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+      </svg>
+      Download Resume
+    </a>
+  </div>
+</section>
+
+<!-- Add this style in your CSS -->
+<style>
+  .fadeScaleActive {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+    transition-property: opacity, transform;
+  }
+</style>
+
+<!-- Add this script at the bottom of your page or inside a JS file -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const animateElements = document.querySelectorAll("#resume [data-animate='fadeScale']");
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateElements.forEach((el) => {
+            const delay = el.dataset.delay || 0;
+            setTimeout(() => {
+              el.classList.add("fadeScaleActive");
+            }, delay);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (animateElements.length > 0) {
+      observer.observe(document.querySelector("#resume"));
+    }
+  });
+</script>
+
+
+<!-- footer section -->
+
+<footer class="bg-[#0f172a] text-white py-16 px-6 md:px-16">
+  <div class="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+
+    <!-- Logo & Description -->
+    <div>
+      <h3 class="text-3xl font-extrabold mb-3 tracking-wide text-indigo-500">Nihal Joshi</h3>
+      <p class="text-gray-300 leading-relaxed">
+        Full-stack developer passionate about building seamless user experiences with HTML, CSS, JavaScript, Tailwind CSS, and Bootstrap 5 on the front end — backed by solid PHP and MySQL backend expertise.
+      </p>
+    </div>
+
+    <!-- Contact Info -->
+    <div>
+      <h4 class="text-xl font-semibold mb-4 text-indigo-400">Contact Info</h4>
+      <ul class="space-y-3 text-gray-400">
+        <li><i class="fas fa-envelope mr-3 text-indigo-400"></i> work.nihal3714@gmail.com</li>
+        <li><i class="fas fa-map-marker-alt pl-0.5 mr-4 text-indigo-400"></i> Bhavnagar, India</li>
+      </ul>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h4 class="text-xl font-semibold mb-4 text-indigo-400">Quick Links</h4>
+      <ul class="space-y-3">
+        <li><a href="#about" class="hover:text-indigo-500 transition duration-300">About</a></li>
+        <li><a href="#skills" class="hover:text-indigo-500 transition duration-300">Skills</a></li>
+        <li><a href="#projects" class="hover:text-indigo-500 transition duration-300">Projects</a></li>
+        <li><a href="#contact" class="hover:text-indigo-500 transition duration-300">Contact</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <hr class="border-gray-700 my-10" />
+
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
+    <p>© 2025 Nihal Joshi. All rights reserved.</p>
+    <div class="flex space-x-6 mt-4 md:mt-0 text-lg">
+      <a href="https://instagram.com/joshi_nihal10" target="_blank" aria-label="Instagram" class="hover:text-indigo-500 transition duration-300">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://linkedin.com/in/nihal-joshi-b2b1b1365" target="_blank" aria-label="LinkedIn" class="hover:text-indigo-500 transition duration-300">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+</body>
+<script>
+  const form = document.getElementById("contactForm");
+  const toastContainer = document.getElementById("toastContainer");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !message || !validateEmail(email)) {
+      showToast("Please fill out all fields correctly.", "error");
+      return;
+    }
+
+    // Simulate form sending here (e.g., AJAX)...
+
+    form.reset();
+    showToast("Message sent successfully!", "success");
+  });
+
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email.toLowerCase());
+  }
+
+  function showToast(message, type) {
+    const toast = document.createElement("div");
+    toast.textContent = message;
+
+    toast.className = `
+      max-w-sm px-6 py-3 rounded-lg shadow-lg text-white font-semibold 
+      transform transition-all duration-500 ease-in-out origin-bottom-right
+      ${
+        type === "success"
+          ? "bg-green-600"
+          : "bg-red-600"
+      }
+      opacity-0 scale-75 translate-x-20
+    `;
+
+    toastContainer.appendChild(toast);
+
+    // Animate in (scale up + slide left + fade in)
+    requestAnimationFrame(() => {
+      toast.style.opacity = "1";
+      toast.style.transform = "scale(1) translateX(0)";
+    });
+
+    // Animate out after 4s and remove
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      toast.style.transform = "scale(0.75) translateX(20px)";
+      toast.addEventListener("transitionend", () => {
+        toast.remove();
+      });
+    }, 4000);
+  }
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const skillSection = document.getElementById('skills');
+    const skillItems = skillSection.querySelectorAll('.skill-item');
+
+    const radius = 54;
+    const circumference = 2 * Math.PI * radius;
+
+    let animated = false;
+
+    function animateSkills() {
+      if (animated) return;
+      animated = true;
+
+      skillItems.forEach(item => {
+        const progressCircle = item.querySelector('.progress');
+        const percentText = item.querySelector('.percent-text');
+        const skillName = item.querySelector('h3').innerText;
+
+        const skillPercentMap = {
+          'HTML5 & CSS3': 95,
+          'JavaScript (ES6+)': 90,
+          'PHP & MySQL': 85,
+          'Tailwind CSS': 90,
+        };
+
+        const percent = skillPercentMap[skillName] || 0;
+        let progress = 0;
+
+        function animate() {
+          if (progress > percent) {
+            percentText.textContent = percent + '%';
+            return;
+          }
+          const offset = circumference - (progress / 100) * circumference;
+          progressCircle.style.strokeDashoffset = offset;
+          percentText.textContent = progress + '%';
+          progress++;
+          requestAnimationFrame(animate);
+        }
+
+        animate();
+      });
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateSkills();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(skillSection);
+  });
+</script>
+</html>

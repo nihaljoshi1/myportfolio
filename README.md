@@ -20,7 +20,7 @@ This is a personal portfolio website, so contributions are not accepted. However
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/).
 
 ## Testing
 
